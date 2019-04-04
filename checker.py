@@ -4,7 +4,7 @@
 def are_parentheses_correct(formula):
     return check_scopes(
         formula,
-        {'(': ')', '[': ']', '{': '}'}
+        {'(': ')', '{': '}'}
     )
 
 

@@ -15,12 +15,12 @@ class TestAreParenthesesCorrect(unittest.TestCase):
     def test_missing_braces(self):
         self.assertFalse(are_parentheses_correct('('))
         self.assertFalse(
-            are_parentheses_correct('y^{2-(3*u)} - [2*h - {4 - 5}')
+            are_parentheses_correct('y^{2-(3*u)} - {2*h - {4 - 5}')
         )
 
     def test_misaligned_braces(self):
-        self.assertFalse(are_parentheses_correct('([)]'))
-        self.assertFalse(are_parentheses_correct('{()}[{]}'))
+        self.assertFalse(are_parentheses_correct('({})}'))
+        self.assertFalse(are_parentheses_correct('{()}({)}'))
 
     def test_empty_string(self):
         self.assertTrue(are_parentheses_correct(''))
@@ -30,7 +30,6 @@ class TestAreParenthesesCorrect(unittest.TestCase):
 
     def test_only_braces(self):
         self.assertTrue(are_parentheses_correct('()'))
-        self.assertTrue(are_parentheses_correct('[]'))
         self.assertTrue(are_parentheses_correct('{}'))
 
     def test_incorrect_mathematically(self):
